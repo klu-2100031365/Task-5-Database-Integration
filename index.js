@@ -5,7 +5,6 @@ const db = require('./db');
 const app = express();
 app.use(bodyParser.json());
 
-// CREATE - Add a new user
 app.post('/users', (req, res) => {
     const { name, email, age } = req.body;
     const sql = 'INSERT INTO users (name, email, age) VALUES (?, ?, ?)';
@@ -14,8 +13,6 @@ app.post('/users', (req, res) => {
         res.send('✅ User added successfully');
     });
 });
-
-// READ - Get all users
 app.get('/users', (req, res) => {
     const sql = 'SELECT * FROM users';
     db.query(sql, (err, results) => {
@@ -24,7 +21,6 @@ app.get('/users', (req, res) => {
     });
 });
 
-// UPDATE - Update a user by ID
 app.put('/users/:id', (req, res) => {
     const { name, email, age } = req.body;
     const { id } = req.params;
@@ -35,7 +31,6 @@ app.put('/users/:id', (req, res) => {
     });
 });
 
-// DELETE - Delete user by ID
 app.delete('/users/:id', (req, res) => {
     const { id } = req.params;
     const sql = 'DELETE FROM users WHERE id = ?';
