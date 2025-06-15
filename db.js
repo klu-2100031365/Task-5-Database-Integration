@@ -7,12 +7,17 @@ const db = mysql.createConnection({
     database: 'userdb'
 });
 
+
+
+
+
+
 db.connect((err) => {
     if (err) {
-        console.error('❌ Database connection failed:', err.stack);
+        console.error('❌ Database  connection failed:', err.stack);
         return;
     }
-    console.log('✅ Connected to MySQL database');
+    console.log('✅ Connected  to MySQL database');
 });
 
 module.exports = db;

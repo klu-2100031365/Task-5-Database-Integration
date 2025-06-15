@@ -37,6 +37,10 @@ app.delete('/users/:id', (req, res) => {
     db.query(sql, [id], (err) => {
         if (err) return res.status(500).send(err);
         res.send('❌ User deleted successfully');
+
+
+
+        
     });
 });
 
